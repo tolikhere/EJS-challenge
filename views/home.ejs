@@ -1,0 +1,21 @@
+<%- include('partials/header'); -%>
+
+    <h1>Home</h1>
+    <p><%= startingContent %></p>
+    
+    <% posts.forEach( (post) => { %>
+
+      <% const content = post.content; %>
+      <% const title = post.title; %>
+
+      <h1><%= title %></h1>
+      <% if (content.length <= 100) { %>
+        <p><%= content %></p>
+      <% } else { %>
+        <p><%= content.slice(0, 100) + "..." %> <a href="/posts/<%= title %>">Read More</a></p>
+      <% } %>
+
+    <% }) %>
+
+
+<%- include('partials/footer') -%>
